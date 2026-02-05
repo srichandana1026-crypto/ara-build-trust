@@ -6,6 +6,7 @@ import { ArrowRight, Shield, Clock, Users, CheckCircle2 } from "lucide-react";
 import heroImage from "@/assets/hero-construction.jpg";
 import residentialImage from "@/assets/project-residential.jpg";
 import commercialImage from "@/assets/project-commercial.jpg";
+ import { MobileHome } from "@/components/mobile/MobileHome";
 
 const stats = [
   { value: "150+", label: "Projects Completed" },
@@ -37,7 +38,7 @@ const features = [
 
 const Index = () => {
   return (
-    <Layout>
+     <Layout mobileContent={<MobileHome />}>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}

@@ -11,6 +11,7 @@
    Ruler,
    HardHat,
  } from "lucide-react";
+ import { MobileServices } from "@/components/mobile/MobileServices";
  
  const services = [
    {
@@ -89,7 +90,7 @@
  
  const Services = () => {
    return (
-     <Layout>
+     <Layout mobileContent={<MobileServices />}>
        {/* Hero Section */}
        <section className="pt-32 pb-20 bg-background">
          <div className="container-wide">

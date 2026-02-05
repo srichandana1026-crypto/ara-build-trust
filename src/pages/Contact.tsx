@@ -6,6 +6,7 @@
  import { AnimatedSection } from "@/components/ui/AnimatedSection";
  import { MapPin, Phone, Mail, Clock, CheckCircle2 } from "lucide-react";
  import { useToast } from "@/hooks/use-toast";
+ import { MobileContact } from "@/components/mobile/MobileContact";
  
  const contactInfo = [
    {
@@ -33,6 +34,7 @@
  const Contact = () => {
    const { toast } = useToast();
    const [isSubmitting, setIsSubmitting] = useState(false);
+
    const [formData, setFormData] = useState({
      name: "",
      email: "",
@@ -64,7 +66,7 @@
    };
  
    return (
-     <Layout>
+     <Layout mobileContent={<MobileContact />}>
        {/* Hero Section */}
        <section className="pt-32 pb-20 bg-background">
          <div className="container-wide">

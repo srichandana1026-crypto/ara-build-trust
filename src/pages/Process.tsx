@@ -3,6 +3,7 @@
  import { Button } from "@/components/ui/button";
  import { AnimatedSection } from "@/components/ui/AnimatedSection";
  import { ArrowRight, CheckCircle2 } from "lucide-react";
+ import { MobileProcess } from "@/components/mobile/MobileProcess";
  
  const processSteps = [
    {
@@ -81,7 +82,7 @@
  
  const Process = () => {
    return (
-     <Layout>
+     <Layout mobileContent={<MobileProcess />}>
        {/* Hero Section */}
        <section className="pt-32 pb-20 bg-background">
          <div className="container-wide">
