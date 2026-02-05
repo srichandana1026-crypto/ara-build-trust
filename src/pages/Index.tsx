@@ -50,9 +50,9 @@ const Index = () => {
           <img
             src={heroImage}
             alt="Modern construction project"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center md:object-center"
           />
-           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent md:bg-foreground/60 md:via-transparent md:from-transparent" />
+           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent md:bg-foreground/60 md:via-transparent md:from-transparent" />
         </div>
 
         {/* Hero Content */}
