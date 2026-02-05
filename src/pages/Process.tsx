@@ -1,9 +1,10 @@
+ import { useEffect, useState } from "react";
  import { Link } from "react-router-dom";
  import { Layout } from "@/components/layout/Layout";
  import { Button } from "@/components/ui/button";
  import { AnimatedSection } from "@/components/ui/AnimatedSection";
  import { ArrowRight, CheckCircle2 } from "lucide-react";
- import { MobileProcess } from "@/components/mobile/MobileProcess";
+ import { cn } from "@/lib/utils";
  
  const processSteps = [
    {
@@ -81,20 +82,26 @@
  ];
  
  const Process = () => {
+   const [activeStep, setActiveStep] = useState(0);
+ 
+   useEffect(() => {
+     document.title = "Our Process | ARA Constructions";
+   }, []);
+ 
    return (
-     <Layout mobileContent={<MobileProcess />}>
+     <Layout>
        {/* Hero Section */}
-       <section className="pt-32 pb-20 bg-background">
-         <div className="container-wide">
+       <section className="pt-8 pb-4 md:pt-32 md:pb-20 bg-background">
+         <div className="container-wide px-5 md:px-6">
            <AnimatedSection>
              <div className="max-w-3xl">
-               <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
+               <p className="text-xs md:text-sm font-medium tracking-widest uppercase text-muted-foreground mb-2 md:mb-4">
                  Our Process
                </p>
-               <h1 className="text-4xl md:text-6xl font-semibold mb-6">
+               <h1 className="text-2xl md:text-6xl font-semibold mb-4 md:mb-6">
                  Transparency at every step
                </h1>
-               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+               <p className="text-base md:text-xl text-muted-foreground leading-relaxed">
                  We believe you deserve to know exactly what's happening with your
                  project. Our process is designed to keep you informed and in
                  control from start to finish.
@@ -104,8 +111,68 @@
          </div>
        </section>
  
+       {/* Mobile Step Selector */}
+       <section className="md:hidden px-5 overflow-x-auto py-4">
+         <div className="flex gap-2 min-w-max pb-2">
+           {processSteps.map((step, index) => (
+             <button
+               key={step.number}
+               onClick={() => setActiveStep(index)}
+               className={cn(
+                 "px-4 py-2 rounded-full text-sm font-medium transition-all",
+                 activeStep === index
+                   ? "bg-foreground text-background"
+                   : "bg-card text-muted-foreground border border-border"
+               )}
+             >
+               {step.title.split(" ")[0]}
+             </button>
+           ))}
+         </div>
+       </section>
+ 
+       {/* Mobile Active Step Detail */}
+       <section className="md:hidden px-5 py-4">
+         <div className="bg-card border border-border rounded-2xl p-5">
+           <div className="flex items-center gap-4 mb-4">
+             <span className="text-4xl font-bold text-muted-foreground/30">
+               {processSteps[activeStep].number}
+             </span>
+             <div>
+               <p className="text-xl font-semibold">{processSteps[activeStep].title}</p>
+               <p className="text-sm text-muted-foreground">
+                 {processSteps[activeStep].description.slice(0, 50)}...
+               </p>
+             </div>
+           </div>
+           <div className="space-y-3 mt-6">
+             {processSteps[activeStep].details.map((detail) => (
+               <div key={detail} className="flex items-center gap-3">
+                 <CheckCircle2 className="h-5 w-5 text-foreground shrink-0" />
+                 <span className="text-sm">{detail}</span>
+               </div>
+             ))}
+           </div>
+         </div>
+         {/* Progress Indicator */}
+         <div className="flex gap-1.5 mt-4">
+           {processSteps.map((_, index) => (
+             <div
+               key={index}
+               className={cn(
+                 "h-1 flex-1 rounded-full transition-colors",
+                 index <= activeStep ? "bg-foreground" : "bg-muted"
+               )}
+             />
+           ))}
+         </div>
+         <p className="text-xs text-muted-foreground text-center mt-3">
+           Step {activeStep + 1} of {processSteps.length}
+         </p>
+       </section>
+ 
        {/* Process Steps */}
-       <section className="section-padding bg-secondary">
+       <section className="hidden md:block section-padding bg-secondary">
          <div className="container-wide">
            <div className="space-y-16">
              {processSteps.map((step, index) => (
@@ -156,17 +223,17 @@
        </section>
  
        {/* CTA Section */}
-       <section className="section-padding bg-foreground text-primary-foreground">
-         <div className="container-narrow text-center">
+       <section className="py-12 md:section-padding bg-foreground text-primary-foreground">
+         <div className="container-narrow text-center px-5 md:px-6">
            <AnimatedSection>
-             <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-primary-foreground">
+             <h2 className="text-2xl md:text-5xl font-semibold mb-4 md:mb-6 text-primary-foreground">
                Ready to start your journey?
              </h2>
-             <p className="text-lg md:text-xl opacity-80 mb-10 max-w-2xl mx-auto">
+             <p className="text-base md:text-xl opacity-80 mb-8 md:mb-10 max-w-2xl mx-auto">
                Let's discuss your project. Schedule a free consultation and take
                the first step toward your dream space.
              </p>
-             <Button asChild size="lg" variant="secondary" className="text-base px-8">
+             <Button asChild size="lg" variant="secondary" className="text-base px-8 w-full md:w-auto">
                <Link to="/contact">
                  Schedule Consultation
                  <ArrowRight className="ml-2 h-5 w-5" />

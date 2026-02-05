@@ -1,12 +1,11 @@
- import { useState } from "react";
+ import { useState, useEffect } from "react";
  import { Layout } from "@/components/layout/Layout";
  import { Button } from "@/components/ui/button";
  import { Input } from "@/components/ui/input";
  import { Textarea } from "@/components/ui/textarea";
  import { AnimatedSection } from "@/components/ui/AnimatedSection";
- import { MapPin, Phone, Mail, Clock, CheckCircle2 } from "lucide-react";
+ import { MapPin, Phone, Mail, Clock, CheckCircle2, ArrowRight } from "lucide-react";
  import { useToast } from "@/hooks/use-toast";
- import { MobileContact } from "@/components/mobile/MobileContact";
  
  const contactInfo = [
    {
@@ -34,6 +33,7 @@
  const Contact = () => {
    const { toast } = useToast();
    const [isSubmitting, setIsSubmitting] = useState(false);
+   const [mobileStep, setMobileStep] = useState<1 | 2>(1);
 
    const [formData, setFormData] = useState({
      name: "",
@@ -42,6 +42,10 @@
      projectType: "",
      message: "",
    });
+ 
+   useEffect(() => {
+     document.title = "Contact Us | ARA Constructions";
+   }, []);
  
    const handleSubmit = async (e: React.FormEvent) => {
      e.preventDefault();
@@ -62,23 +66,24 @@
        projectType: "",
        message: "",
      });
+     setMobileStep(1);
      setIsSubmitting(false);
    };
  
    return (
-     <Layout mobileContent={<MobileContact />}>
+     <Layout>
        {/* Hero Section */}
-       <section className="pt-32 pb-20 bg-background">
-         <div className="container-wide">
+       <section className="pt-8 pb-4 md:pt-32 md:pb-20 bg-background">
+         <div className="container-wide px-5 md:px-6">
            <AnimatedSection>
              <div className="max-w-3xl">
-               <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
+               <p className="text-xs md:text-sm font-medium tracking-widest uppercase text-muted-foreground mb-2 md:mb-4">
                  Contact Us
                </p>
-               <h1 className="text-4xl md:text-6xl font-semibold mb-6">
+               <h1 className="text-2xl md:text-6xl font-semibold mb-4 md:mb-6">
                  Let's discuss your project
                </h1>
-               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+               <p className="text-base md:text-xl text-muted-foreground leading-relaxed">
                  Ready to start building? Get in touch with our team for a free
                  consultation. We'll respond within 24 hours.
                </p>
@@ -87,17 +92,42 @@
          </div>
        </section>
  
+       {/* Mobile Quick Contact */}
+       <section className="md:hidden px-5 py-4">
+         <div className="grid grid-cols-2 gap-3">
+           <a href="tel:+919876543210" className="bg-card border border-border rounded-2xl p-5 text-center">
+             <Phone className="h-6 w-6 mx-auto mb-2 text-foreground" />
+             <p className="font-medium text-sm">Call Us</p>
+             <p className="text-xs text-muted-foreground mt-1">+91 98765 43210</p>
+           </a>
+           <a href="mailto:info@araconstructions.com" className="bg-card border border-border rounded-2xl p-5 text-center">
+             <Mail className="h-6 w-6 mx-auto mb-2 text-foreground" />
+             <p className="font-medium text-sm">Email</p>
+             <p className="text-xs text-muted-foreground mt-1 truncate">info@ara...</p>
+           </a>
+         </div>
+       </section>
+ 
        {/* Contact Form & Info */}
-       <section className="section-padding bg-secondary">
-         <div className="container-wide">
+       <section className="py-8 md:section-padding bg-secondary">
+         <div className="container-wide px-5 md:px-6">
            <div className="grid lg:grid-cols-2 gap-16">
              {/* Form */}
              <AnimatedSection direction="left">
-               <div className="bg-card border border-border rounded-2xl p-8 md:p-10">
-                 <h2 className="text-2xl font-semibold mb-6">
+               <div className="bg-card border border-border rounded-2xl p-5 md:p-10">
+                 <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6">
                    Request a Free Quote
                  </h2>
-                 <form onSubmit={handleSubmit} className="space-y-6">
+                 
+                 {/* Mobile Step Indicator */}
+                 <div className="flex gap-2 mb-6 md:hidden">
+                   <div className={`h-1 flex-1 rounded-full ${mobileStep >= 1 ? "bg-foreground" : "bg-muted"}`} />
+                   <div className={`h-1 flex-1 rounded-full ${mobileStep >= 2 ? "bg-foreground" : "bg-muted"}`} />
+                 </div>
+ 
+                 <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                   {/* Mobile Step 1 */}
+                   <div className={`${mobileStep === 1 ? "block" : "hidden"} md:block space-y-4`}>
                    <div className="grid md:grid-cols-2 gap-4">
                      <div>
                        <label
@@ -113,6 +143,7 @@
                            setFormData({ ...formData, name: e.target.value })
                          }
                          placeholder="Your name"
+                         className="h-12 md:h-10"
                          required
                        />
                      </div>
@@ -131,12 +162,13 @@
                            setFormData({ ...formData, phone: e.target.value })
                          }
                          placeholder="+91 98765 43210"
+                         className="h-12 md:h-10"
                          required
                        />
                      </div>
                    </div>
  
-                   <div>
+                     <div className="hidden md:block">
                      <label
                        htmlFor="email"
                        className="block text-sm font-medium mb-2"
@@ -168,7 +200,7 @@
                        onChange={(e) =>
                          setFormData({ ...formData, projectType: e.target.value })
                        }
-                       className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                       className="w-full h-12 md:h-10 px-3 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
                      >
                        <option value="">Select project type</option>
                        <option value="residential">Residential Construction</option>
@@ -178,7 +210,10 @@
                        <option value="other">Other</option>
                      </select>
                    </div>
+                   </div>
  
+                   {/* Mobile Step 2 / Desktop always visible */}
+                   <div className={`${mobileStep === 2 ? "block" : "hidden"} md:block space-y-4`}>
                    <div>
                      <label
                        htmlFor="message"
@@ -193,11 +228,54 @@
                          setFormData({ ...formData, message: e.target.value })
                        }
                        placeholder="Tell us about your project requirements, location, and any specific needs..."
-                       rows={5}
+                       rows={4}
+                       className="min-h-[100px]"
                        required
                      />
                    </div>
+                   </div>
  
+                   {/* Mobile Navigation Buttons */}
+                   <div className="md:hidden">
+                     {mobileStep === 1 ? (
+                       <Button
+                         type="button"
+                         size="lg"
+                         className="w-full h-14"
+                         onClick={() => {
+                           if (formData.name && formData.phone && formData.projectType) {
+                             setMobileStep(2);
+                           }
+                         }}
+                       >
+                         Continue
+                         <ArrowRight className="ml-2 h-5 w-5" />
+                       </Button>
+                     ) : (
+                       <div className="flex gap-3">
+                         <Button
+                           type="button"
+                           variant="outline"
+                           size="lg"
+                           className="flex-1 h-14"
+                           onClick={() => setMobileStep(1)}
+                         >
+                           Back
+                         </Button>
+                         <Button
+                           type="submit"
+                           size="lg"
+                           className="flex-1 h-14"
+                           disabled={isSubmitting}
+                         >
+                           {isSubmitting ? "Sending..." : "Submit"}
+                         </Button>
+                       </div>
+                     )}
+                   </div>
+ 
+                   {/* Desktop Submit */}
+                   <div className="hidden md:block">
                    <Button
                      type="submit"
                      size="lg"
@@ -206,6 +284,7 @@
                    >
                      {isSubmitting ? "Sending..." : "Submit Request"}
                    </Button>
+                   </div>
  
                    <p className="text-xs text-muted-foreground text-center">
                      We'll respond within 24 hours. No spam, ever.
@@ -215,7 +294,7 @@
              </AnimatedSection>
  
              {/* Contact Info */}
-             <AnimatedSection direction="right">
+             <AnimatedSection direction="right" className="hidden md:block">
                <div className="space-y-8">
                  <div>
                    <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
@@ -266,6 +345,47 @@
                  </div>
                </div>
              </AnimatedSection>
+           </div>
+         </div>
+       </section>
+       
+       {/* Mobile What to Expect */}
+       <section className="md:hidden px-5 py-6">
+         <div className="bg-card border border-border rounded-2xl p-5">
+           <p className="font-medium mb-3">What to expect</p>
+           <div className="space-y-2">
+             {[
+               "Response within 24 hours",
+               "Free initial consultation",
+               "Transparent, detailed quote",
+             ].map((item) => (
+               <div key={item} className="flex items-center gap-2">
+                 <CheckCircle2 className="h-4 w-4 text-foreground shrink-0" />
+                 <span className="text-sm text-muted-foreground">{item}</span>
+               </div>
+             ))}
+           </div>
+         </div>
+       </section>
+       
+       {/* Mobile Location & Hours */}
+       <section className="md:hidden px-5 pb-8 space-y-3">
+         <div className="bg-card border border-border rounded-2xl p-5 flex items-center gap-4">
+           <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shrink-0">
+             <MapPin className="h-6 w-6 text-foreground" />
+           </div>
+           <div>
+             <p className="font-medium">Visit Our Office</p>
+             <p className="text-sm text-muted-foreground">Warangal, Telangana</p>
+           </div>
+         </div>
+         <div className="bg-card border border-border rounded-2xl p-5 flex items-center gap-4">
+           <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shrink-0">
+             <Clock className="h-6 w-6 text-foreground" />
+           </div>
+           <div>
+             <p className="font-medium">Working Hours</p>
+             <p className="text-sm text-muted-foreground">Mon–Sat: 9AM–6PM</p>
            </div>
          </div>
        </section>

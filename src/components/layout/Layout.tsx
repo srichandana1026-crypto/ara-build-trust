@@ -1,37 +1,28 @@
- import { ReactNode, useEffect, useState } from "react";
+ import { ReactNode } from "react";
  import { Navigation } from "./Navigation";
  import { Footer } from "./Footer";
- import { MobileLayout } from "@/components/mobile/MobileLayout";
+ import { MobileBottomNav } from "@/components/mobile/MobileBottomNav";
  
  interface LayoutProps {
    children: ReactNode;
-  mobileContent?: ReactNode;
  }
  
- export function Layout({ children, mobileContent }: LayoutProps) {
-   const [isMobile, setIsMobile] = useState(false);
-
-   useEffect(() => {
-     const checkMobile = () => {
-       setIsMobile(window.innerWidth < 768);
-     };
-     
-     checkMobile();
-     window.addEventListener("resize", checkMobile);
-     return () => window.removeEventListener("resize", checkMobile);
-   }, []);
-
-   // Render mobile layout if on mobile and mobile content is provided
-   if (isMobile && mobileContent) {
-     return <MobileLayout>{mobileContent}</MobileLayout>;
-   }
-
-   // Desktop/Tablet layout
+ export function Layout({ children }: LayoutProps) {
    return (
      <div className="min-h-screen flex flex-col">
-       <Navigation />
-       <main className="flex-1">{children}</main>
-       <Footer />
+       {/* Desktop navigation - hidden on mobile */}
+       <div className="hidden md:block">
+         <Navigation />
+       </div>
+       <main className="flex-1 pb-20 md:pb-0">{children}</main>
+       {/* Desktop footer - hidden on mobile */}
+       <div className="hidden md:block">
+         <Footer />
+       </div>
+       {/* Mobile bottom navigation - visible only on mobile */}
+       <div className="md:hidden">
+         <MobileBottomNav />
+       </div>
      </div>
    );
  }

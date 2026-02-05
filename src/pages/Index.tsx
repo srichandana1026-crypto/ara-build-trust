@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+ import { useEffect } from "react";
+ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -6,7 +7,6 @@ import { ArrowRight, Shield, Clock, Users, CheckCircle2 } from "lucide-react";
 import heroImage from "@/assets/hero-construction.jpg";
 import residentialImage from "@/assets/project-residential.jpg";
 import commercialImage from "@/assets/project-commercial.jpg";
- import { MobileHome } from "@/components/mobile/MobileHome";
 
 const stats = [
   { value: "150+", label: "Projects Completed" },
@@ -37,10 +37,14 @@ const features = [
 ];
 
 const Index = () => {
+   useEffect(() => {
+     document.title = "ARA Constructions | Trusted Construction Partner in Warangal";
+   }, []);
+ 
   return (
-     <Layout mobileContent={<MobileHome />}>
+     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+       <section className="relative min-h-[85vh] md:min-h-screen flex items-end md:items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -48,32 +52,33 @@ const Index = () => {
             alt="Modern construction project"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-foreground/60" />
+           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent md:bg-foreground/60 md:via-transparent md:from-transparent" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 container-wide text-center text-primary-foreground pt-20">
-          <AnimatedSection>
-            <p className="text-sm md:text-base font-medium tracking-widest uppercase mb-6 opacity-80">
+         <div className="relative z-10 w-full px-5 md:container-wide md:text-center md:text-primary-foreground pb-8 md:pb-0 md:pt-20">
+           <AnimatedSection className="md:block">
+             <p className="text-xs md:text-base font-medium tracking-widest uppercase mb-2 md:mb-6 text-muted-foreground md:text-primary-foreground md:opacity-80">
               Warangal's Trusted Construction Partner
             </p>
           </AnimatedSection>
           <AnimatedSection delay={100}>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6 max-w-4xl mx-auto text-primary-foreground">
-              We Build Spaces
+             <h1 className="text-3xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-3 md:mb-6 max-w-4xl md:mx-auto text-foreground md:text-primary-foreground">
+               <span className="md:hidden">Build Your Dream Home</span>
+               <span className="hidden md:inline">We Build Spaces
               <br />
-              You'll Love Living In
+               You'll Love Living In</span>
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={200}>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-90 leading-relaxed">
+             <p className="text-sm md:text-xl max-w-2xl md:mx-auto mb-6 md:mb-10 text-muted-foreground md:text-primary-foreground md:opacity-90 leading-relaxed">
               End-to-end residential and commercial construction with complete
-              transparency. From foundation to finishing, we handle everything.
+               transparency.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={300}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary" className="text-base px-8">
+             <div className="flex flex-col sm:flex-row gap-4 md:justify-center">
+               <Button asChild size="lg" variant="default" className="text-base h-14 md:h-auto rounded-xl md:rounded-md md:px-8 md:variant-secondary">
                 <Link to="/contact">
                   Start Your Project
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -83,7 +88,7 @@ const Index = () => {
                 asChild
                 size="lg"
                 variant="outline"
-                className="text-base px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-foreground"
+                 className="hidden md:inline-flex text-base px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-foreground"
               >
                 <Link to="/process">See How We Work</Link>
               </Button>
@@ -92,7 +97,7 @@ const Index = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
           <div className="w-6 h-10 rounded-full border-2 border-primary-foreground/50 flex justify-center">
             <div className="w-1.5 h-3 bg-primary-foreground/50 rounded-full mt-2 animate-bounce" />
           </div>
@@ -100,16 +105,16 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-foreground text-primary-foreground py-16">
-        <div className="container-wide">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+       <section className="bg-foreground text-primary-foreground py-8 md:py-16">
+         <div className="container-wide px-5 md:px-6">
+           <div className="grid grid-cols-3 md:grid-cols-4 gap-4 md:gap-8">
             {stats.map((stat, index) => (
               <AnimatedSection key={stat.label} delay={index * 100}>
                 <div className="text-center">
-                  <p className="text-3xl md:text-4xl font-semibold mb-2">
+                   <p className="text-xl md:text-4xl font-semibold mb-1 md:mb-2">
                     {stat.value}
                   </p>
-                  <p className="text-sm md:text-base opacity-70">{stat.label}</p>
+                   <p className="text-xs md:text-base opacity-70">{stat.label}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -118,28 +123,32 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="section-padding bg-background">
-        <div className="container-wide">
+       <section className="py-10 md:section-padding bg-background">
+         <div className="container-wide px-5 md:px-6">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
+             <div className="text-center mb-8 md:mb-16">
+               <p className="text-xs md:text-sm font-medium tracking-widest uppercase text-muted-foreground mb-2 md:mb-4">
                 Why ARA Constructions
               </p>
-              <h2 className="text-3xl md:text-5xl font-semibold max-w-2xl mx-auto">
+               <h2 className="text-2xl md:text-5xl font-semibold max-w-2xl mx-auto">
                 Building trust through transparency
               </h2>
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-8">
+           <div className="grid gap-3 md:grid-cols-3 md:gap-8">
             {features.map((feature, index) => (
               <AnimatedSection key={feature.title} delay={index * 100}>
-                <div className="bg-card border border-border rounded-xl p-8 hover-lift">
-                  <feature.icon className="h-10 w-10 text-foreground mb-6" />
-                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                 <div className="bg-card border border-border rounded-2xl p-5 md:p-8 hover-lift flex items-center gap-4 md:block">
+                   <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shrink-0 md:w-auto md:h-auto md:bg-transparent md:mb-6">
+                     <feature.icon className="h-6 w-6 md:h-10 md:w-10 text-foreground" />
+                   </div>
+                   <div className="flex-1">
+                     <h3 className="text-base md:text-xl font-semibold mb-1 md:mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
+                   </div>
                 </div>
               </AnimatedSection>
             ))}
@@ -148,14 +157,14 @@ const Index = () => {
       </section>
 
       {/* Services Preview Section */}
-      <section className="section-padding bg-secondary">
-        <div className="container-wide">
+       <section className="py-10 md:section-padding bg-secondary">
+         <div className="container-wide px-5 md:px-6">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
+             <div className="text-center mb-8 md:mb-16">
+               <p className="text-xs md:text-sm font-medium tracking-widest uppercase text-muted-foreground mb-2 md:mb-4">
                 Our Services
               </p>
-              <h2 className="text-3xl md:text-5xl font-semibold max-w-3xl mx-auto">
+               <h2 className="text-2xl md:text-5xl font-semibold max-w-3xl mx-auto">
                 Complete construction solutions for every need
               </h2>
             </div>
@@ -216,21 +225,21 @@ const Index = () => {
       </section>
 
       {/* Process Preview */}
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+       <section className="py-10 md:section-padding bg-background">
+         <div className="container-wide px-5 md:px-6">
+           <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <AnimatedSection direction="left">
-              <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
+               <p className="text-xs md:text-sm font-medium tracking-widest uppercase text-muted-foreground mb-2 md:mb-4">
                 Our Process
               </p>
-              <h2 className="text-3xl md:text-5xl font-semibold mb-6">
+               <h2 className="text-2xl md:text-5xl font-semibold mb-4 md:mb-6">
                 A clear path from vision to reality
               </h2>
-              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+               <p className="text-muted-foreground text-sm md:text-lg mb-6 md:mb-8 leading-relaxed">
                 We've perfected a transparent, step-by-step process that keeps you
                 informed and in control at every stage of your project.
               </p>
-              <ul className="space-y-4 mb-8">
+               <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                 {[
                   "Initial consultation and site assessment",
                   "Detailed planning and transparent pricing",
@@ -238,12 +247,12 @@ const Index = () => {
                   "Final walkthrough and handover",
                 ].map((step) => (
                   <li key={step} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-foreground">{step}</span>
+                     <CheckCircle2 className="h-5 w-5 md:h-6 md:w-6 text-foreground shrink-0 mt-0.5" />
+                     <span className="text-foreground text-sm md:text-base">{step}</span>
                   </li>
                 ))}
               </ul>
-              <Button asChild size="lg">
+               <Button asChild size="lg" className="w-full md:w-auto">
                 <Link to="/process">
                   View Full Process
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -252,9 +261,9 @@ const Index = () => {
             </AnimatedSection>
 
             <AnimatedSection direction="right">
-              <div className="relative">
-                <div className="bg-secondary rounded-2xl p-8 md:p-12">
-                  <div className="grid grid-cols-2 gap-6">
+               <div className="relative hidden md:block">
+                 <div className="bg-secondary rounded-2xl p-6 md:p-12">
+                   <div className="grid grid-cols-2 gap-3 md:gap-6">
                     {[
                       { number: "01", title: "Consult" },
                       { number: "02", title: "Plan" },
@@ -280,17 +289,17 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-foreground text-primary-foreground">
-        <div className="container-narrow text-center">
+       <section className="py-10 md:section-padding bg-foreground text-primary-foreground">
+         <div className="container-narrow text-center px-5 md:px-6">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-primary-foreground">
+             <h2 className="text-2xl md:text-5xl font-semibold mb-4 md:mb-6 text-primary-foreground">
               Ready to build your dream space?
             </h2>
-            <p className="text-lg md:text-xl opacity-80 mb-10 max-w-2xl mx-auto">
+             <p className="text-sm md:text-xl opacity-80 mb-6 md:mb-10 max-w-2xl mx-auto">
               Get a free consultation and transparent quote for your project.
               No obligations, no hidden costs.
             </p>
-            <Button asChild size="lg" variant="secondary" className="text-base px-8">
+             <Button asChild size="lg" variant="secondary" className="text-base px-8 w-full md:w-auto">
               <Link to="/contact">
                 Get Your Free Quote
                 <ArrowRight className="ml-2 h-5 w-5" />

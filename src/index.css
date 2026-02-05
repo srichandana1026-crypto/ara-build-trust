@@ -5,6 +5,9 @@
 /* ARA Constructions Design System
    Apple-inspired minimal design with neutral palette
    All colors in HSL format
+    
+    IMPORTANT: Mobile and desktop share the same DOM structure.
+    All responsive differences are handled via CSS media queries only.
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -267,6 +270,11 @@
     .mobile-caption {
       @apply text-sm text-muted-foreground;
     }
+     
+     /* Add padding at bottom for fixed mobile nav */
+     main {
+       padding-bottom: 5rem;
+     }
   }
 
   /* Mobile page transition */
@@ -290,4 +298,11 @@
   .pb-safe {
     padding-bottom: max(env(safe-area-inset-bottom), 1rem);
   }
+   
+   /* Desktop section-padding fallback for mobile */
+   @media (max-width: 767px) {
+     .md\:section-padding {
+       @apply py-10;
+     }
+   }
 }
