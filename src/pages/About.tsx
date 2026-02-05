@@ -3,6 +3,7 @@
  import { Button } from "@/components/ui/button";
  import { AnimatedSection } from "@/components/ui/AnimatedSection";
  import { ArrowRight, Award, Users, Building, Target } from "lucide-react";
+ import { MobileAbout } from "@/components/mobile/MobileAbout";
  
  const values = [
    {
@@ -41,7 +42,7 @@
  
  const About = () => {
    return (
-     <Layout>
+     <Layout mobileContent={<MobileAbout />}>
        {/* Hero Section */}
        <section className="pt-32 pb-20 bg-background">
          <div className="container-wide">

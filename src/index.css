@@ -100,6 +100,53 @@
     --warm-white: 220 10% 8%;
     --stone: 220 10% 25%;
   }
+
+  /* Mobile-specific dark theme - applied only on mobile viewports */
+  @media (max-width: 767px) {
+    :root {
+      /* Deep charcoal/black background - Apple app style */
+      --background: 0 0% 0%;
+      --foreground: 0 0% 100%;
+
+      /* Card surfaces - slightly elevated from background */
+      --card: 0 0% 8%;
+      --card-foreground: 0 0% 100%;
+
+      --popover: 0 0% 10%;
+      --popover-foreground: 0 0% 100%;
+
+      /* Primary - White for strong CTAs on dark */
+      --primary: 0 0% 100%;
+      --primary-foreground: 0 0% 0%;
+
+      /* Secondary - Dark gray */
+      --secondary: 0 0% 15%;
+      --secondary-foreground: 0 0% 100%;
+
+      /* Muted - Subtle dark tones */
+      --muted: 0 0% 12%;
+      --muted-foreground: 0 0% 60%;
+
+      /* Accent - Highlighted items */
+      --accent: 0 0% 18%;
+      --accent-foreground: 0 0% 100%;
+
+      /* Borders - Subtle on dark */
+      --border: 0 0% 20%;
+      --input: 0 0% 20%;
+      --ring: 0 0% 100%;
+
+      /* Custom tokens for mobile dark theme */
+      --slate: 0 0% 50%;
+      --charcoal: 0 0% 100%;
+      --warm-white: 0 0% 0%;
+      --stone: 0 0% 25%;
+
+      /* Mobile-specific tokens */
+      --mobile-nav-bg: 0 0% 5%;
+      --mobile-accent: 211 100% 50%;
+    }
+  }
 }
 
 @layer base {
@@ -193,5 +240,54 @@
 
   .container-wide {
     @apply max-w-7xl mx-auto px-6;
+  }
+
+  /* Mobile-specific utilities */
+  @media (max-width: 767px) {
+    .mobile-container {
+      @apply px-5 py-6;
+    }
+
+    .mobile-card {
+      @apply bg-card rounded-2xl p-5 border border-border/50;
+    }
+
+    .mobile-heading {
+      @apply text-2xl font-semibold tracking-tight text-foreground;
+    }
+
+    .mobile-subheading {
+      @apply text-lg font-medium text-foreground;
+    }
+
+    .mobile-body {
+      @apply text-base text-muted-foreground leading-relaxed;
+    }
+
+    .mobile-caption {
+      @apply text-sm text-muted-foreground;
+    }
+  }
+
+  /* Mobile page transition */
+  .mobile-page-enter {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .mobile-page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  }
+
+  /* Mobile tap feedback */
+  .mobile-tap {
+    @apply active:scale-95 transition-transform duration-100;
+  }
+
+  /* Mobile safe area padding for bottom nav */
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
   }
 }
