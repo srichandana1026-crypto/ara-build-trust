@@ -1,4 +1,5 @@
- import { ReactNode } from "react";
+import { ReactNode } from "react";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
  import { Navigation } from "./Navigation";
  import { Footer } from "./Footer";
  
@@ -7,6 +8,8 @@
  }
  
  export function Layout({ children }: LayoutProps) {
+  useScrollToTop();
+
    return (
      <div className="min-h-screen flex flex-col">
        <Navigation />

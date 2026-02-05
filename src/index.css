@@ -4,6 +4,7 @@
 
 /* ARA Constructions Design System
    Apple-inspired minimal design with neutral palette
+   Apple System Blue for CTAs
    All colors in HSL format
 */
 
@@ -23,9 +24,9 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 10% 12%;
 
-    /* Primary - Deep charcoal for strong CTAs */
-    --primary: 220 10% 12%;
-    --primary-foreground: 40 20% 98%;
+    /* Primary - Apple System Blue for CTAs */
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
     /* Secondary - Light warm gray */
     --secondary: 40 10% 94%;
@@ -49,6 +50,10 @@
     --ring: 220 10% 12%;
 
     --radius: 0.625rem;
+
+    /* Apple Blue tokens */
+    --apple-blue: 211 100% 50%;
+    --apple-blue-hover: 211 100% 45%;
 
     /* Sidebar */
     --sidebar-background: 0 0% 98%;
@@ -74,8 +79,10 @@
     --card-foreground: 40 20% 98%;
     --popover: 220 10% 10%;
     --popover-foreground: 40 20% 98%;
-    --primary: 40 20% 98%;
-    --primary-foreground: 220 10% 12%;
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --apple-blue: 211 100% 60%;
+    --apple-blue-hover: 211 100% 55%;
     --secondary: 220 10% 16%;
     --secondary-foreground: 40 20% 98%;
     --muted: 220 10% 18%;
