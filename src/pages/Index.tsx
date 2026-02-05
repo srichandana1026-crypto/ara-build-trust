@@ -2,200 +2,297 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Shield, Clock, Users, CheckCircle2 } from "lucide-react";
+import heroImage from "@/assets/hero-construction.jpg";
+import residentialImage from "@/assets/project-residential.jpg";
+import commercialImage from "@/assets/project-commercial.jpg";
+
+const stats = [
+  { value: "150+", label: "Projects Completed" },
+  { value: "12+", label: "Years Experience" },
+  { value: "100%", label: "Client Satisfaction" },
+  { value: "50+", label: "Expert Team" },
+];
+
+const features = [
+  {
+    icon: Shield,
+    title: "Transparent Pricing",
+    description:
+      "No hidden costs. Every expense is documented and shared with you upfront.",
+  },
+  {
+    icon: Clock,
+    title: "On-Time Delivery",
+    description:
+      "We commit to timelines and deliver. Your project will be ready when promised.",
+  },
+  {
+    icon: Users,
+    title: "Dedicated Team",
+    description:
+      "A single point of contact and expert team assigned exclusively to your project.",
+  },
+];
 
 const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center pt-12 bg-background">
-        <div className="max-w-[980px] mx-auto px-6 text-center">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImage}
+            alt="Modern construction project"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-foreground/60" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 container-wide text-center text-primary-foreground pt-20">
           <AnimatedSection>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight mb-6">
-              Build with
-              <br />
-              <span className="text-primary">confidence.</span>
-            </h1>
-          </AnimatedSection>
-          <AnimatedSection delay={100}>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-              End-to-end construction. Complete transparency.
-              <br />
-              From foundation to finishing, we handle everything.
+            <p className="text-sm md:text-base font-medium tracking-widest uppercase mb-6 opacity-80">
+              Warangal's Trusted Construction Partner
             </p>
           </AnimatedSection>
+          <AnimatedSection delay={100}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6 max-w-4xl mx-auto text-primary-foreground">
+              We Build Spaces
+              <br />
+              You'll Love Living In
+            </h1>
+          </AnimatedSection>
           <AnimatedSection delay={200}>
+            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-90 leading-relaxed">
+              End-to-end residential and commercial construction with complete
+              transparency. From foundation to finishing, we handle everything.
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={300}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="text-base">
-                <Link to="/contact/start-project">
-                  Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+              <Button asChild size="lg" variant="secondary" className="text-base px-8">
+                <Link to="/contact">
+                  Start Your Project
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="text-base">
-                <Link to="/services/process">See How We Work</Link>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="text-base px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-foreground"
+              >
+                <Link to="/process">See How We Work</Link>
               </Button>
             </div>
           </AnimatedSection>
         </div>
-      </section>
 
-      {/* Value Proposition */}
-      <section className="py-32 bg-foreground">
-        <div className="max-w-[980px] mx-auto px-6 text-center">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-semibold text-primary-foreground mb-6">
-              Construction shouldn't be stressful.
-            </h2>
-            <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto">
-              Most people fear construction—hidden costs, endless delays, broken promises. 
-              We built ARA Constructions to prove it can be different.
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* What We Do */}
-      <section className="py-32 bg-background">
-        <div className="max-w-[980px] mx-auto px-6">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-semibold text-center mb-20">
-              What we build.
-            </h2>
-          </AnimatedSection>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Residential",
-                desc: "Custom homes, villas, and apartments designed around your life.",
-                link: "/services/residential",
-              },
-              {
-                title: "Commercial",
-                desc: "Offices, retail spaces, and warehouses built for business.",
-                link: "/services/commercial",
-              },
-            ].map((item, i) => (
-              <AnimatedSection key={item.title} delay={i * 100}>
-                <Link
-                  to={item.link}
-                  className="group block bg-secondary rounded-3xl p-10 transition-all duration-300 hover:bg-secondary/80"
-                >
-                  <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground mb-6">{item.desc}</p>
-                  <span className="inline-flex items-center text-primary font-medium group-hover:underline">
-                    Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                  </span>
-                </Link>
-              </AnimatedSection>
-            ))}
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <div className="w-6 h-10 rounded-full border-2 border-primary-foreground/50 flex justify-center">
+            <div className="w-1.5 h-3 bg-primary-foreground/50 rounded-full mt-2 animate-bounce" />
           </div>
         </div>
       </section>
 
-      {/* Trust Indicators */}
-      <section className="py-32 bg-secondary">
-        <div className="max-w-[980px] mx-auto px-6 text-center">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-semibold mb-20">
-              Why families choose us.
-            </h2>
-          </AnimatedSection>
-          <div className="grid md:grid-cols-3 gap-10">
-            {[
-              { stat: "150+", label: "Projects Delivered" },
-              { stat: "12+", label: "Years Experience" },
-              { stat: "100%", label: "On-Time Delivery" },
-            ].map((item, i) => (
-              <AnimatedSection key={item.label} delay={i * 100}>
-                <div>
-                  <p className="text-5xl md:text-6xl font-semibold text-foreground mb-2">{item.stat}</p>
-                  <p className="text-muted-foreground">{item.label}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How We're Different */}
-      <section className="py-32 bg-background">
-        <div className="max-w-[980px] mx-auto px-6">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-semibold text-center mb-6">
-              Transparent. Every step.
-            </h2>
-            <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto mb-20">
-              You'll always know exactly what's happening, what it costs, and when it'll be done.
-            </p>
-          </AnimatedSection>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: "Line-by-line pricing", desc: "Every cost itemized. No hidden fees. Ever." },
-              { title: "Weekly updates", desc: "Photos and progress reports delivered to you." },
-              { title: "Single point of contact", desc: "One project manager who knows everything." },
-            ].map((item, i) => (
-              <AnimatedSection key={item.title} delay={i * 100}>
+      {/* Stats Section */}
+      <section className="bg-foreground text-primary-foreground py-16">
+        <div className="container-wide">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <AnimatedSection key={stat.label} delay={index * 100}>
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.desc}</p>
+                  <p className="text-3xl md:text-4xl font-semibold mb-2">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm md:text-base opacity-70">{stat.label}</p>
                 </div>
               </AnimatedSection>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="section-padding bg-background">
+        <div className="container-wide">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
+                Why ARA Constructions
+              </p>
+              <h2 className="text-3xl md:text-5xl font-semibold max-w-2xl mx-auto">
+                Building trust through transparency
+              </h2>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <AnimatedSection key={feature.title} delay={index * 100}>
+                <div className="bg-card border border-border rounded-xl p-8 hover-lift">
+                  <feature.icon className="h-10 w-10 text-foreground mb-6" />
+                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Preview Section */}
+      <section className="section-padding bg-secondary">
+        <div className="container-wide">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
+                Our Services
+              </p>
+              <h2 className="text-3xl md:text-5xl font-semibold max-w-3xl mx-auto">
+                Complete construction solutions for every need
+              </h2>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <AnimatedSection direction="left">
+              <div className="group relative rounded-2xl overflow-hidden">
+                <img
+                  src={residentialImage}
+                  alt="Residential construction"
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <h3 className="text-2xl font-semibold text-primary-foreground mb-2">
+                    Residential Construction
+                  </h3>
+                  <p className="text-primary-foreground/80 mb-4">
+                    Custom homes, villas, and apartments designed for your lifestyle
+                  </p>
+                  <Link
+                    to="/services"
+                    className="inline-flex items-center text-primary-foreground font-medium hover:underline"
+                  >
+                    Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection direction="right">
+              <div className="group relative rounded-2xl overflow-hidden">
+                <img
+                  src={commercialImage}
+                  alt="Commercial construction"
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <h3 className="text-2xl font-semibold text-primary-foreground mb-2">
+                    Commercial Construction
+                  </h3>
+                  <p className="text-primary-foreground/80 mb-4">
+                    Office spaces, retail, and industrial buildings built to last
+                  </p>
+                  <Link
+                    to="/services"
+                    className="inline-flex items-center text-primary-foreground font-medium hover:underline"
+                  >
+                    Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* Process Preview */}
-      <section className="py-32 bg-secondary">
-        <div className="max-w-[980px] mx-auto px-6 text-center">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-semibold mb-6">
-              A simple process.
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-16">
-              From first call to final handover—clear, predictable, stress-free.
-            </p>
-          </AnimatedSection>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { num: "01", label: "Consult" },
-              { num: "02", label: "Plan" },
-              { num: "03", label: "Build" },
-              { num: "04", label: "Deliver" },
-            ].map((step, i) => (
-              <AnimatedSection key={step.num} delay={i * 100}>
-                <div className="bg-card rounded-2xl p-8">
-                  <p className="text-4xl font-bold text-muted-foreground/30 mb-2">{step.num}</p>
-                  <p className="font-medium">{step.label}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-          <AnimatedSection delay={400}>
-            <div className="mt-12">
-              <Button asChild size="lg" variant="outline">
-                <Link to="/services/process">View Full Process</Link>
+      <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection direction="left">
+              <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
+                Our Process
+              </p>
+              <h2 className="text-3xl md:text-5xl font-semibold mb-6">
+                A clear path from vision to reality
+              </h2>
+              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                We've perfected a transparent, step-by-step process that keeps you
+                informed and in control at every stage of your project.
+              </p>
+              <ul className="space-y-4 mb-8">
+                {[
+                  "Initial consultation and site assessment",
+                  "Detailed planning and transparent pricing",
+                  "Quality construction with regular updates",
+                  "Final walkthrough and handover",
+                ].map((step) => (
+                  <li key={step} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-foreground shrink-0 mt-0.5" />
+                    <span className="text-foreground">{step}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button asChild size="lg">
+                <Link to="/process">
+                  View Full Process
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+
+            <AnimatedSection direction="right">
+              <div className="relative">
+                <div className="bg-secondary rounded-2xl p-8 md:p-12">
+                  <div className="grid grid-cols-2 gap-6">
+                    {[
+                      { number: "01", title: "Consult" },
+                      { number: "02", title: "Plan" },
+                      { number: "03", title: "Build" },
+                      { number: "04", title: "Deliver" },
+                    ].map((item) => (
+                      <div
+                        key={item.number}
+                        className="bg-card rounded-xl p-6 text-center hover-lift"
+                      >
+                        <p className="text-3xl font-semibold text-muted-foreground mb-2">
+                          {item.number}
+                        </p>
+                        <p className="font-medium">{item.title}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-background">
-        <div className="max-w-[700px] mx-auto px-6 text-center">
+      <section className="section-padding bg-foreground text-primary-foreground">
+        <div className="container-narrow text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-semibold mb-6">
-              Ready to start?
+            <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-primary-foreground">
+              Ready to build your dream space?
             </h2>
-            <p className="text-muted-foreground text-lg mb-10">
-              Get a free consultation. No pressure. No obligations.
-              <br />
-              Just honest advice about your project.
+            <p className="text-lg md:text-xl opacity-80 mb-10 max-w-2xl mx-auto">
+              Get a free consultation and transparent quote for your project.
+              No obligations, no hidden costs.
             </p>
-            <Button asChild size="lg" className="text-base">
-              <Link to="/contact/start-project">
-                Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+            <Button asChild size="lg" variant="secondary" className="text-base px-8">
+              <Link to="/contact">
+                Get Your Free Quote
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </AnimatedSection>
