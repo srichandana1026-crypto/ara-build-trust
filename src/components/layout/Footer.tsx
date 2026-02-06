@@ -46,11 +46,24 @@
            </div>
          </div>
  
-         <div className="border-t border-primary-foreground/10 mt-16 pt-8">
-           <p className="text-primary-foreground/50 text-sm text-center">
-             © {currentYear} ARA Constructions. All rights reserved.
-           </p>
-         </div>
+        <div className="border-t border-primary-foreground/10 mt-16 pt-8">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-primary-foreground/50 text-sm text-center">
+              © {currentYear} ARA Constructions. All rights reserved.
+            </p>
+            <p className="text-primary-foreground/30 text-xs">
+              Built by{" "}
+              <a
+                href="https://revflowmarketing.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary-foreground/50 transition-colors"
+              >
+                RevFlow Marketing
+              </a>
+            </p>
+          </div>
+        </div>
        </div>
      </footer>
    );

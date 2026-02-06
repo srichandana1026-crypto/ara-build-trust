@@ -10,10 +10,10 @@ import residentialImage from "@/assets/project-residential.jpg";
 import commercialImage from "@/assets/project-commercial.jpg";
 
 const stats = [
-  { value: "150+", label: "Projects Completed" },
-  { value: "12+", label: "Years Experience" },
-  { value: "100%", label: "Client Satisfaction" },
-  { value: "50+", label: "Expert Team" },
+  { value: "100%", label: "Transparent Pricing" },
+  { value: "A+", label: "Grade Materials" },
+  { value: "5yr", label: "Structural Warranty" },
+  { value: "24/7", label: "Client Support" },
 ];
 
 const features = [

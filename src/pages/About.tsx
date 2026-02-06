@@ -32,13 +32,13 @@
    },
  ];
  
- const milestones = [
-   { year: "2012", event: "Founded in Warangal" },
-   { year: "2015", event: "50th project completed" },
-   { year: "2018", event: "Expanded to commercial construction" },
-   { year: "2021", event: "100th project milestone" },
-   { year: "2024", event: "150+ projects and growing" },
- ];
+const milestones = [
+  { year: "Vision", event: "Premium construction with complete transparency" },
+  { year: "Process", event: "End-to-end planning, execution & quality control" },
+  { year: "Standards", event: "Engineering excellence in every detail" },
+  { year: "Team", event: "Architects, engineers & skilled craftsmen" },
+  { year: "Promise", event: "On-time delivery with no hidden costs" },
+];
  
  const About = () => {
    useEffect(() => {
@@ -73,31 +73,31 @@
          <div className="container-wide px-5 md:px-6">
            <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
              <AnimatedSection direction="left">
-               <h2 className="text-2xl md:text-4xl font-semibold mb-4 md:mb-6">
-                 From humble beginnings to trusted partner
-               </h2>
-               <div className="space-y-3 md:space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
-                 <p>
-                   ARA Constructions was founded in 2012 with a simple mission: to
-                   bring transparent, quality construction to Warangal and the
-                   surrounding region.
-                 </p>
-                 <p>
-                   What started as a small team of dedicated professionals has grown
-                   into a full-service construction company with over 50 skilled
-                   employees. Yet our core values remain unchanged.
-                 </p>
-                 <p>
-                   We believe that every client deserves to know exactly what
-                   they're paying for, when their project will be completed, and
-                   that every promise made will be kept.
-                 </p>
-               </div>
+              <h2 className="text-2xl md:text-4xl font-semibold mb-4 md:mb-6">
+                A modern approach to construction
+              </h2>
+              <div className="space-y-3 md:space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
+                <p>
+                  ARA Constructions was founded with a clear mission: to bring
+                  transparent, quality-driven construction to Warangal and the
+                  surrounding region.
+                </p>
+                <p>
+                  Our team of experienced architects, engineers, and skilled
+                  craftsmen brings decades of combined expertise to every
+                  project—ensuring excellence from foundation to finish.
+                </p>
+                <p>
+                  We believe that every client deserves to know exactly what
+                  they're paying for, when their project will be completed, and
+                  that every promise made will be kept.
+                </p>
+              </div>
              </AnimatedSection>
  
-             <AnimatedSection direction="right">
-               <div className="bg-foreground text-primary-foreground rounded-2xl p-6 md:p-12">
-                 <h3 className="text-xl font-semibold mb-6 text-primary-foreground">Our Journey</h3>
+              <AnimatedSection direction="right">
+                <div className="bg-foreground text-primary-foreground rounded-2xl p-6 md:p-12">
+                  <h3 className="text-xl font-semibold mb-6 text-primary-foreground">What Drives Us</h3>
                  <div className="space-y-4 md:space-y-6">
                    {milestones.map((milestone, index) => (
                      <div
@@ -156,12 +156,12 @@
        <section className="py-10 md:py-16 bg-foreground text-primary-foreground">
          <div className="container-wide px-5 md:px-6">
            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-             {[
-               { value: "12+", label: "Years of Excellence" },
-               { value: "150+", label: "Projects Delivered" },
-               { value: "50+", label: "Team Members" },
-               { value: "100%", label: "Client Satisfaction" },
-             ].map((stat, index) => (
+              {[
+                { value: "100%", label: "Transparent Pricing" },
+                { value: "A+", label: "Grade Materials" },
+                { value: "5yr", label: "Structural Warranty" },
+                { value: "24/7", label: "Dedicated Support" },
+              ].map((stat, index) => (
                <AnimatedSection key={stat.label} delay={index * 100}>
                  <div className="text-center">
                    <p className="text-2xl md:text-4xl font-semibold mb-1 md:mb-2">
@@ -229,10 +229,10 @@
              <h2 className="text-2xl md:text-5xl font-semibold mb-4 md:mb-6 text-primary-foreground">
                Let's build something great together
              </h2>
-             <p className="text-base md:text-xl opacity-80 mb-8 md:mb-10 max-w-2xl mx-auto">
-               Join the hundreds of satisfied clients who trusted us with their
-               construction projects. Your dream space is just a conversation away.
-             </p>
+              <p className="text-base md:text-xl opacity-80 mb-8 md:mb-10 max-w-2xl mx-auto">
+                Your dream space is just a conversation away. Let's discuss your
+                vision and create something exceptional together.
+              </p>
              <Button asChild size="lg" variant="secondary" className="text-base px-8 w-full md:w-auto">
                <Link to="/contact">
                  Get in Touch
