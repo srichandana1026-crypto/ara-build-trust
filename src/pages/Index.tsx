@@ -1,5 +1,5 @@
- import { useEffect } from "react";
- import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -8,58 +8,45 @@ import heroImage from "@/assets/hero-construction.jpg";
 import heroImageMobile from "@/assets/hero-construction-mobile.jpg";
 import residentialImage from "@/assets/project-residential.jpg";
 import commercialImage from "@/assets/project-commercial.jpg";
-
-const stats = [
-  { value: "100%", label: "Transparent Pricing" },
-  { value: "A+", label: "Grade Materials" },
-  { value: "5yr", label: "Structural Warranty" },
-  { value: "24/7", label: "Client Support" },
-];
-
-const features = [
-  {
-    icon: Shield,
-    title: "Transparent Pricing",
-    description:
-      "No hidden costs. Every expense is documented and shared with you upfront.",
-  },
-  {
-    icon: Clock,
-    title: "On-Time Delivery",
-    description:
-      "We commit to timelines and deliver. Your project will be ready when promised.",
-  },
-  {
-    icon: Users,
-    title: "Dedicated Team",
-    description:
-      "A single point of contact and expert team assigned exclusively to your project.",
-  },
-];
-
+const stats = [{
+  value: "150+",
+  label: "Projects Completed"
+}, {
+  value: "12+",
+  label: "Years Experience"
+}, {
+  value: "100%",
+  label: "Client Satisfaction"
+}, {
+  value: "50+",
+  label: "Expert Team"
+}];
+const features = [{
+  icon: Shield,
+  title: "Transparent Pricing",
+  description: "No hidden costs. Every expense is documented and shared with you upfront."
+}, {
+  icon: Clock,
+  title: "On-Time Delivery",
+  description: "We commit to timelines and deliver. Your project will be ready when promised."
+}, {
+  icon: Users,
+  title: "Dedicated Team",
+  description: "A single point of contact and expert team assigned exclusively to your project."
+}];
 const Index = () => {
-   useEffect(() => {
-     document.title = "ARA Constructions | Trusted Construction Partner in Warangal";
-   }, []);
- 
-  return (
-     <Layout>
+  useEffect(() => {
+    document.title = "ARA Constructions | Trusted Construction Partner in Warangal";
+  }, []);
+  return <Layout>
       {/* Hero Section */}
        <section className="relative min-h-[85vh] md:min-h-screen flex items-end md:items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           {/* Mobile hero image */}
-          <img
-            src={heroImageMobile}
-            alt="Modern residential construction"
-            className="w-full h-full object-cover object-center md:hidden"
-          />
+          <img src={heroImageMobile} alt="Modern residential construction" className="w-full h-full object-cover object-center md:hidden" />
           {/* Desktop hero image */}
-          <img
-            src={heroImage}
-            alt="Modern construction project"
-            className="w-full h-full object-cover object-center hidden md:block"
-          />
+          <img src={heroImage} alt="Modern construction project" className="w-full h-full object-cover object-center hidden md:block" />
            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent md:bg-foreground/60 md:via-transparent md:from-transparent" />
         </div>
 
@@ -92,12 +79,7 @@ const Index = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                 className="hidden md:inline-flex text-base px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-foreground"
-              >
+              <Button asChild size="lg" variant="outline" className="hidden md:inline-flex text-base px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-foreground">
                 <Link to="/process">See How We Work</Link>
               </Button>
             </div>
@@ -116,16 +98,14 @@ const Index = () => {
        <section className="bg-foreground text-primary-foreground py-8 md:py-16">
          <div className="container-wide px-5 md:px-6">
            <div className="grid grid-cols-3 md:grid-cols-4 gap-4 md:gap-8">
-            {stats.map((stat, index) => (
-              <AnimatedSection key={stat.label} delay={index * 100}>
+            {stats.map((stat, index) => <AnimatedSection key={stat.label} delay={index * 100}>
                 <div className="text-center">
                    <p className="text-xl md:text-4xl font-semibold mb-1 md:mb-2">
                     {stat.value}
                   </p>
                    <p className="text-xs md:text-base opacity-70">{stat.label}</p>
                 </div>
-              </AnimatedSection>
-            ))}
+              </AnimatedSection>)}
           </div>
         </div>
       </section>
@@ -145,8 +125,7 @@ const Index = () => {
           </AnimatedSection>
 
            <div className="grid gap-3 md:grid-cols-3 md:gap-8">
-            {features.map((feature, index) => (
-              <AnimatedSection key={feature.title} delay={index * 100}>
+            {features.map((feature, index) => <AnimatedSection key={feature.title} delay={index * 100}>
                  <div className="bg-card border border-border rounded-2xl p-5 md:p-8 hover-lift flex items-center gap-4 md:block">
                    <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shrink-0 md:w-auto md:h-auto md:bg-transparent md:mb-6">
                      <feature.icon className="h-6 w-6 md:h-10 md:w-10 text-foreground" />
@@ -158,8 +137,7 @@ const Index = () => {
                   </p>
                    </div>
                 </div>
-              </AnimatedSection>
-            ))}
+              </AnimatedSection>)}
           </div>
         </div>
       </section>
@@ -181,23 +159,16 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <AnimatedSection direction="left">
               <div className="group relative rounded-2xl overflow-hidden">
-                <img
-                  src={residentialImage}
-                  alt="Residential construction"
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                <img src={residentialImage} alt="Residential construction" className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h3 className="text-2xl font-semibold text-primary-foreground mb-2">
+                  <h3 className="text-2xl font-semibold mb-2 bg-white/40 text-primary-foreground">
                     Residential Construction
                   </h3>
-                  <p className="text-primary-foreground/80 mb-4">
+                  <p className="text-primary-foreground/80 mb-4 bg-white/[0.23]">
                     Custom homes, villas, and apartments designed for your lifestyle
                   </p>
-                  <Link
-                    to="/services"
-                    className="inline-flex items-center text-primary-foreground font-medium hover:underline"
-                  >
+                  <Link to="/services" className="inline-flex items-center text-primary-foreground font-medium hover:underline">
                     Learn more <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </div>
@@ -206,23 +177,16 @@ const Index = () => {
 
             <AnimatedSection direction="right">
               <div className="group relative rounded-2xl overflow-hidden">
-                <img
-                  src={commercialImage}
-                  alt="Commercial construction"
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                <img src={commercialImage} alt="Commercial construction" className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h3 className="text-2xl font-semibold text-primary-foreground mb-2">
+                  <h3 className="text-2xl font-semibold mb-2 text-primary-foreground bg-white/[0.58]">
                     Commercial Construction
                   </h3>
-                  <p className="text-primary-foreground/80 mb-4">
+                  <p className="text-primary-foreground/80 mb-4 bg-white/[0.33]">
                     Office spaces, retail, and industrial buildings built to last
                   </p>
-                  <Link
-                    to="/services"
-                    className="inline-flex items-center text-primary-foreground font-medium hover:underline"
-                  >
+                  <Link to="/services" className="inline-flex items-center text-primary-foreground font-medium hover:underline">
                     Learn more <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </div>
@@ -248,17 +212,10 @@ const Index = () => {
                 informed and in control at every stage of your project.
               </p>
                <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
-                {[
-                  "Initial consultation and site assessment",
-                  "Detailed planning and transparent pricing",
-                  "Quality construction with regular updates",
-                  "Final walkthrough and handover",
-                ].map((step) => (
-                  <li key={step} className="flex items-start gap-3">
+                {["Initial consultation and site assessment", "Detailed planning and transparent pricing", "Quality construction with regular updates", "Final walkthrough and handover"].map(step => <li key={step} className="flex items-start gap-3">
                      <CheckCircle2 className="h-5 w-5 md:h-6 md:w-6 text-foreground shrink-0 mt-0.5" />
                      <span className="text-foreground text-sm md:text-base">{step}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
                <Button asChild size="lg" className="w-full md:w-auto">
                 <Link to="/process">
@@ -272,22 +229,24 @@ const Index = () => {
                <div className="relative hidden md:block">
                  <div className="bg-secondary rounded-2xl p-6 md:p-12">
                    <div className="grid grid-cols-2 gap-3 md:gap-6">
-                    {[
-                      { number: "01", title: "Consult" },
-                      { number: "02", title: "Plan" },
-                      { number: "03", title: "Build" },
-                      { number: "04", title: "Deliver" },
-                    ].map((item) => (
-                      <div
-                        key={item.number}
-                        className="bg-card rounded-xl p-6 text-center hover-lift"
-                      >
+                    {[{
+                    number: "01",
+                    title: "Consult"
+                  }, {
+                    number: "02",
+                    title: "Plan"
+                  }, {
+                    number: "03",
+                    title: "Build"
+                  }, {
+                    number: "04",
+                    title: "Deliver"
+                  }].map(item => <div key={item.number} className="bg-card rounded-xl p-6 text-center hover-lift">
                         <p className="text-3xl font-semibold text-muted-foreground mb-2">
                           {item.number}
                         </p>
                         <p className="font-medium">{item.title}</p>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
               </div>
@@ -316,8 +275,6 @@ const Index = () => {
           </AnimatedSection>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Index;
