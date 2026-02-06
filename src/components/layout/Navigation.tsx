@@ -29,14 +29,14 @@ import araLogo from "@/assets/ara-logo.png";
      setIsMobileMenuOpen(false);
    }, [location]);
  
-   return (
-     <header
-       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-         isScrolled ? "glass-nav" : "bg-transparent"
-       }`}
-     >
-       <nav className="container-wide">
-         <div className="flex items-center justify-between h-16 md:h-20">
+    return (
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-foreground ${
+          isScrolled ? "shadow-lg" : ""
+        }`}
+      >
+        <nav className="container-wide">
+          <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link
               to="/"
@@ -44,61 +44,61 @@ import araLogo from "@/assets/ara-logo.png";
             >
               <img src={araLogo} alt="ARA Constructions" className="h-10 md:h-12 w-auto" />
             </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-sm font-medium transition-colors hover:text-primary-foreground ${
+                    location.pathname === link.path
+                      ? "text-primary-foreground"
+                      : "text-primary-foreground/70"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Button asChild size="sm" variant="secondary">
+                <Link to="/contact">Get a Quote</Link>
+              </Button>
+            </div>
  
-           {/* Desktop Navigation */}
-           <div className="hidden md:flex items-center gap-8">
-             {navLinks.map((link) => (
-               <Link
-                 key={link.path}
-                 to={link.path}
-                 className={`text-sm font-medium transition-colors hover:text-foreground ${
-                   location.pathname === link.path
-                     ? "text-foreground"
-                     : "text-muted-foreground"
-                 }`}
-               >
-                 {link.name}
-               </Link>
-             ))}
-             <Button asChild size="sm">
-               <Link to="/contact">Get a Quote</Link>
-             </Button>
-           </div>
- 
-           {/* Mobile Menu Button */}
-           <button
-             className="md:hidden p-2 text-foreground"
-             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-             aria-label="Toggle menu"
-           >
-             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-           </button>
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2 text-primary-foreground"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
          </div>
        </nav>
  
-       {/* Mobile Menu */}
-       {isMobileMenuOpen && (
-         <div className="md:hidden bg-background border-b border-border">
-           <div className="container-wide py-4 flex flex-col gap-4">
-             {navLinks.map((link) => (
-               <Link
-                 key={link.path}
-                 to={link.path}
-                 className={`text-base font-medium py-2 transition-colors ${
-                   location.pathname === link.path
-                     ? "text-foreground"
-                     : "text-muted-foreground"
-                 }`}
-               >
-                 {link.name}
-               </Link>
-             ))}
-             <Button asChild className="w-full mt-2">
-               <Link to="/contact">Get a Quote</Link>
-             </Button>
-           </div>
-         </div>
-       )}
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-foreground border-b border-primary-foreground/10">
+            <div className="container-wide py-4 flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-base font-medium py-2 transition-colors ${
+                    location.pathname === link.path
+                      ? "text-primary-foreground"
+                      : "text-primary-foreground/70"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Button asChild variant="secondary" className="w-full mt-2">
+                <Link to="/contact">Get a Quote</Link>
+              </Button>
+            </div>
+          </div>
+        )}
      </header>
    );
  }

@@ -214,7 +214,12 @@
 
   /* Glass effect for navigation */
   .glass-nav {
-    @apply backdrop-blur-xl bg-background/80 border-b border-border/50;
+    @apply backdrop-blur-xl bg-foreground/95 border-b border-border/50;
+  }
+
+  /* Dark header style */
+  .dark-header {
+    @apply bg-foreground text-primary-foreground;
   }
 
   /* Premium text gradient */
