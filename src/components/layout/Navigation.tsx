@@ -1,7 +1,8 @@
- import { useState, useEffect } from "react";
- import { Link, useLocation } from "react-router-dom";
- import { Menu, X } from "lucide-react";
- import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import araLogo from "@/assets/ara-logo.png";
  
  const navLinks = [
    { name: "Home", path: "/" },
@@ -36,13 +37,13 @@
      >
        <nav className="container-wide">
          <div className="flex items-center justify-between h-16 md:h-20">
-           {/* Logo */}
-           <Link
-             to="/"
-             className="text-xl md:text-2xl font-semibold tracking-tight text-foreground hover:opacity-80 transition-opacity"
-           >
-             ARA Constructions
-           </Link>
+            {/* Logo */}
+            <Link
+              to="/"
+              className="hover:opacity-80 transition-opacity"
+            >
+              <img src={araLogo} alt="ARA Constructions" className="h-10 md:h-12 w-auto" />
+            </Link>
  
            {/* Desktop Navigation */}
            <div className="hidden md:flex items-center gap-8">

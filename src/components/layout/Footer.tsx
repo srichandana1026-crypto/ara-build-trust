@@ -1,4 +1,5 @@
- import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import araLogo from "@/assets/ara-logo.png";
  
  export function Footer() {
    const currentYear = new Date().getFullYear();
@@ -7,11 +8,9 @@
      <footer className="bg-foreground text-primary-foreground">
        <div className="container-wide section-padding">
          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
-           {/* Brand */}
-           <div className="md:col-span-2">
-             <h3 className="text-2xl font-semibold mb-4 text-primary-foreground">
-               ARA Constructions
-             </h3>
+            {/* Brand */}
+            <div className="md:col-span-2">
+              <img src={araLogo} alt="ARA Constructions" className="h-12 w-auto mb-4" />
              <p className="text-primary-foreground/70 max-w-md leading-relaxed">
                Building trust through transparency. End-to-end residential and
                commercial construction services in Warangal.
