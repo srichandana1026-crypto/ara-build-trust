@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ArrowRight, Shield, Clock, Users, CheckCircle2 } from "lucide-react";
 import heroImage from "@/assets/hero-construction.jpg";
+import heroImageMobile from "@/assets/hero-construction-mobile.jpg";
 import residentialImage from "@/assets/project-residential.jpg";
 import commercialImage from "@/assets/project-commercial.jpg";
 
@@ -47,10 +48,17 @@ const Index = () => {
        <section className="relative min-h-[85vh] md:min-h-screen flex items-end md:items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
+          {/* Mobile hero image */}
+          <img
+            src={heroImageMobile}
+            alt="Modern residential construction"
+            className="w-full h-full object-cover object-center md:hidden"
+          />
+          {/* Desktop hero image */}
           <img
             src={heroImage}
             alt="Modern construction project"
-            className="w-full h-full object-cover object-center md:object-center"
+            className="w-full h-full object-cover object-center hidden md:block"
           />
            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent md:bg-foreground/60 md:via-transparent md:from-transparent" />
         </div>
