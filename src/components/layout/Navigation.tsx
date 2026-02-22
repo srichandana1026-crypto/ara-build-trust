@@ -31,7 +31,7 @@ import araLogo from "@/assets/ara-logo.png";
  
     return (
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-foreground ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background ${
           isScrolled ? "shadow-lg" : ""
         }`}
       >
@@ -51,10 +51,10 @@ import araLogo from "@/assets/ara-logo.png";
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-sm font-medium transition-colors hover:text-primary-foreground ${
+                  className={`text-sm font-medium transition-colors hover:text-foreground ${
                     location.pathname === link.path
-                      ? "text-primary-foreground"
-                      : "text-primary-foreground/70"
+                      ? "text-foreground"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {link.name}
@@ -67,7 +67,7 @@ import araLogo from "@/assets/ara-logo.png";
  
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-primary-foreground"
+              className="md:hidden p-2 text-foreground"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -78,7 +78,7 @@ import araLogo from "@/assets/ara-logo.png";
  
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-foreground border-b border-primary-foreground/10">
+          <div className="md:hidden bg-background border-b border-border">
             <div className="container-wide py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
@@ -86,8 +86,8 @@ import araLogo from "@/assets/ara-logo.png";
                   to={link.path}
                   className={`text-base font-medium py-2 transition-colors ${
                     location.pathname === link.path
-                      ? "text-primary-foreground"
-                      : "text-primary-foreground/70"
+                      ? "text-foreground"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {link.name}
