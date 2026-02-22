@@ -162,10 +162,10 @@ const Index = () => {
                 <img src={residentialImage} alt="Residential construction" className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h3 className="text-2xl font-semibold mb-2 bg-white/40 text-primary-foreground">
+                  <h3 className="text-2xl font-semibold mb-2 text-primary-foreground bg-white/0">
                     Residential Construction
                   </h3>
-                  <p className="text-primary-foreground/80 mb-4 bg-white/[0.23]">
+                  <p className="text-primary-foreground/80 mb-4 bg-white/0">
                     Custom homes, villas, and apartments designed for your lifestyle
                   </p>
                   <Link to="/services" className="inline-flex items-center text-primary-foreground font-medium hover:underline">
@@ -180,10 +180,10 @@ const Index = () => {
                 <img src={commercialImage} alt="Commercial construction" className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h3 className="text-2xl font-semibold mb-2 text-primary-foreground bg-white/[0.58]">
+                  <h3 className="text-2xl font-semibold mb-2 text-primary-foreground bg-white/0">
                     Commercial Construction
                   </h3>
-                  <p className="text-primary-foreground/80 mb-4 bg-white/[0.33]">
+                  <p className="text-primary-foreground/80 mb-4 bg-white/0">
                     Office spaces, retail, and industrial buildings built to last
                   </p>
                   <Link to="/services" className="inline-flex items-center text-primary-foreground font-medium hover:underline">
@@ -212,7 +212,7 @@ const Index = () => {
                 informed and in control at every stage of your project.
               </p>
                <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
-                {["Initial consultation and site assessment", "Detailed planning and transparent pricing", "Quality construction with regular updates", "Final walkthrough and handover"].map(step => <li key={step} className="flex items-start gap-3">
+                {["Initial consultation and site assessment", "Detailed planning and transparent pricing", "Quality construction with regular updates", "Final walkthrough and handover"].map((step) => <li key={step} className="flex items-start gap-3">
                      <CheckCircle2 className="h-5 w-5 md:h-6 md:w-6 text-foreground shrink-0 mt-0.5" />
                      <span className="text-foreground text-sm md:text-base">{step}</span>
                   </li>)}
@@ -241,7 +241,7 @@ const Index = () => {
                   }, {
                     number: "04",
                     title: "Deliver"
-                  }].map(item => <div key={item.number} className="bg-card rounded-xl p-6 text-center hover-lift">
+                  }].map((item) => <div key={item.number} className="bg-card rounded-xl p-6 text-center hover-lift">
                         <p className="text-3xl font-semibold text-muted-foreground mb-2">
                           {item.number}
                         </p>
