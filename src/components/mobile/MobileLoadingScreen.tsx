@@ -64,7 +64,7 @@ export function MobileLoadingScreen({ onComplete }: MobileLoadingScreenProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center transition-opacity duration-500 ease-out ${
+      className={`fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-opacity duration-500 ease-out ${
         phase === "fading" ? "opacity-0" : "opacity-100"
       }`}
     >
@@ -95,18 +95,18 @@ export function MobileLoadingScreen({ onComplete }: MobileLoadingScreenProps) {
           transition: "opacity 800ms ease-out 500ms, transform 800ms ease-out 500ms",
         }}
       >
-        <div className="h-[2px] w-full bg-white/8 rounded-full overflow-hidden">
+        <div className="h-[2px] w-full bg-black/10 rounded-full overflow-hidden">
           <div
             className="h-full rounded-full"
             style={{
               width: `${progress}%`,
-              background: "linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.3) 100%)",
+              background: "linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.2) 100%)",
               transition: "width 25ms linear",
             }}
           />
         </div>
         <p 
-          className="text-white/25 text-[10px] text-center mt-5 font-light tracking-[0.3em] uppercase"
+          className="text-black/30 text-[10px] text-center mt-5 font-light tracking-[0.3em] uppercase"
           style={{
             opacity: phase === "initial" ? 0 : 1,
             transition: "opacity 1000ms ease-out 800ms",

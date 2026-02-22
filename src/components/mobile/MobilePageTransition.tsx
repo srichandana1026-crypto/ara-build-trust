@@ -37,21 +37,21 @@ export function MobilePageTransition() {
   if (!isTransitioning) return null;
 
   return (
-    <div className="fixed inset-0 z-[9998] bg-black/90 backdrop-blur-sm flex flex-col items-center justify-center transition-opacity duration-200">
+    <div className="fixed inset-0 z-[9998] bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center transition-opacity duration-200">
       {/* Subtle logo with gentle pulse */}
       <div className="animate-pulse">
         <img
           src={araLogo}
           alt="ARA Constructions"
-          className="w-20 h-auto object-contain opacity-80"
+          className="w-20 h-auto object-contain opacity-90"
         />
       </div>
 
       {/* Minimal loading bar */}
       <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-32">
-        <div className="h-[1px] w-full bg-white/10 rounded-full overflow-hidden">
+        <div className="h-[1px] w-full bg-black/10 rounded-full overflow-hidden">
           <div
-            className="h-full bg-white/50 rounded-full transition-all duration-75 ease-out"
+            className="h-full bg-black/40 rounded-full transition-all duration-75 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>
