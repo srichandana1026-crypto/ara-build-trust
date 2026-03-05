@@ -367,7 +367,7 @@
 
   .moving-border-line {
     content: "";
-    @apply absolute inset-0 z-0;
+    @apply absolute z-0;
     background: conic-gradient(from 90deg at 50% 50%,
         rgba(255, 255, 255, 0) 0%,
         rgba(255, 255, 255, 0) 75%,
@@ -375,11 +375,12 @@
         rgba(255, 255, 255, 1) 95%,
         rgba(255, 255, 255, 0) 100%);
     animation: rotate-border 3s linear infinite;
-    width: 250%;
-    height: 250%;
-    top: -75%;
-    left: -75%;
+    width: 300%;
+    height: 300%;
+    top: -100%;
+    left: -100%;
   }
+
 
   @keyframes rotate-border {
     from {

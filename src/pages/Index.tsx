@@ -64,9 +64,9 @@ const features = [{
 }];
 
 const AnimatedCapsule = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`moving-border-container ${className} min-h-[32px]`}>
+  <div className={`moving-border-container ${className} min-h-[32px] w-fit mx-auto`}>
     <div className="moving-border-line" />
-    <div className="moving-border-content glass-capsule px-5 py-2 flex items-center justify-center bg-white/10 dark:bg-black/20 border border-white/30 backdrop-blur-xl">
+    <div className="moving-border-content glass-capsule px-6 py-2 flex items-center justify-center bg-white/10 dark:bg-black/20 border border-white/40 backdrop-blur-2xl rounded-full">
       <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] leading-none text-current">
         {children}
       </span>
@@ -95,7 +95,7 @@ const Index = () => {
       {/* Hero Content */}
       <div className="relative z-10 w-full px-5 md:container-wide md:text-center md:text-primary-foreground pb-8 md:pb-0 md:pt-20">
         <AnimatedSection className="md:block">
-          <AnimatedCapsule className="mb-6 md:mx-auto">
+          <AnimatedCapsule className="mb-6">
             Warangal's Trusted Construction Partner
           </AnimatedCapsule>
         </AnimatedSection>
@@ -116,17 +116,18 @@ const Index = () => {
           </p>
         </AnimatedSection>
         <AnimatedSection delay={300}>
-          <div className="flex flex-col sm:flex-row gap-4 md:justify-center">
-            <VerticalSlideButton to="/contact" className="hero-cta-fix text-base h-14 md:h-auto rounded-xl md:rounded-md md:px-10 bg-foreground text-primary-foreground md:bg-secondary md:text-foreground">
+          <div className="flex flex-col sm:flex-row gap-6 md:justify-center items-center">
+            <VerticalSlideButton to="/contact" className="hero-cta-fix text-base h-16 md:h-auto rounded-xl md:rounded-md px-12 bg-foreground text-primary-foreground md:bg-secondary md:text-foreground">
               Start Your Project
               <ArrowRight className="ml-2 h-5 w-5" />
             </VerticalSlideButton>
 
-            <VerticalSlideButton to="/process" variant="outline" className="hidden md:inline-flex text-base px-10 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-foreground">
+            <VerticalSlideButton to="/process" variant="outline" className="hidden md:inline-flex text-base px-12 bg-transparent border-white/40 text-white hover:bg-transparent">
               See How We Work
             </VerticalSlideButton>
           </div>
         </AnimatedSection>
+
 
       </div>
     </section>
