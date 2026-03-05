@@ -1,52 +1,52 @@
- import { useEffect } from "react";
- import { Link } from "react-router-dom";
- import { Layout } from "@/components/layout/Layout";
- import { Button } from "@/components/ui/button";
- import { AnimatedSection } from "@/components/ui/AnimatedSection";
- import { ArrowRight, Award, Users, Building, Target } from "lucide-react";
- 
- const values = [
-   {
-     icon: Award,
-     title: "Quality First",
-     description:
-       "We never compromise on quality. From materials to craftsmanship, excellence is non-negotiable.",
-   },
-   {
-     icon: Users,
-     title: "Client Focus",
-     description:
-       "Your vision drives every decision. We listen, adapt, and deliver exactly what you need.",
-   },
-   {
-     icon: Building,
-     title: "Integrity",
-     description:
-       "Transparent pricing, honest timelines, and ethical practices. Trust is the foundation of our work.",
-   },
-   {
-     icon: Target,
-     title: "Precision",
-     description:
-       "Every detail matters. We approach each project with meticulous attention and care.",
-   },
- ];
- 
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Layout } from "@/components/layout/Layout";
+import { Button } from "@/components/ui/button";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { ArrowRight, Award, Users, Building, Target } from "lucide-react";
+
+const values = [
+{
+  icon: Award,
+  title: "Quality First",
+  description:
+  "We never compromise on quality. From materials to craftsmanship, excellence is non-negotiable."
+},
+{
+  icon: Users,
+  title: "Client Focus",
+  description:
+  "Your vision drives every decision. We listen, adapt, and deliver exactly what you need."
+},
+{
+  icon: Building,
+  title: "Integrity",
+  description:
+  "Transparent pricing, honest timelines, and ethical practices. Trust is the foundation of our work."
+},
+{
+  icon: Target,
+  title: "Precision",
+  description:
+  "Every detail matters. We approach each project with meticulous attention and care."
+}];
+
+
 const milestones = [
-  { year: "Vision", event: "Premium construction with complete transparency" },
-  { year: "Process", event: "End-to-end planning, execution & quality control" },
-  { year: "Standards", event: "Engineering excellence in every detail" },
-  { year: "Team", event: "Architects, engineers & skilled craftsmen" },
-  { year: "Promise", event: "On-time delivery with no hidden costs" },
-];
- 
- const About = () => {
-   useEffect(() => {
-     document.title = "About Us | ARA Constructions";
-   }, []);
- 
-   return (
-     <Layout>
+{ year: "Vision", event: "Premium construction with complete transparency" },
+{ year: "Process", event: "End-to-end planning, execution & quality control" },
+{ year: "Standards", event: "Engineering excellence in every detail" },
+{ year: "Team", event: "Architects, engineers & skilled craftsmen" },
+{ year: "Promise", event: "On-time delivery with no hidden costs" }];
+
+
+const About = () => {
+  useEffect(() => {
+    document.title = "About Us | ARA Constructions";
+  }, []);
+
+  return (
+    <Layout>
        {/* Hero Section */}
        <section className="pt-8 pb-4 md:pt-32 md:pb-20 bg-background">
          <div className="container-wide px-5 md:px-6">
@@ -69,34 +69,34 @@ const milestones = [
        </section>
  
        {/* Story Section */}
-       <section className="py-8 md:section-padding bg-secondary">
-         <div className="container-wide px-5 md:px-6">
-            <AnimatedSection direction="left">
-              <div className="max-w-3xl">
-               <h2 className="text-2xl md:text-4xl font-semibold mb-4 md:mb-6">
-                 A modern approach to construction
-               </h2>
-               <div className="space-y-3 md:space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
-                 <p>
-                   ARA Constructions was founded with a clear mission: to bring
-                   transparent, quality-driven construction to Warangal and the
-                   surrounding region.
-                 </p>
-                 <p>
-                   Our team of experienced architects, engineers, and skilled
-                   craftsmen brings decades of combined expertise to every
-                   project—ensuring excellence from foundation to finish.
-                 </p>
-                 <p>
-                   We believe that every client deserves to know exactly what
-                   they're paying for, when their project will be completed, and
-                   that every promise made will be kept.
-                 </p>
-               </div>
-              </div>
-            </AnimatedSection>
-         </div>
-       </section>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
  
        {/* Values Section */}
        <section className="py-8 md:section-padding bg-background">
@@ -113,8 +113,8 @@ const milestones = [
            </AnimatedSection>
  
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
-              {values.map((value, index) => (
-                <AnimatedSection key={value.title} delay={index * 100} className="h-full">
+              {values.map((value, index) =>
+            <AnimatedSection key={value.title} delay={index * 100} className="h-full">
                   <div className="h-full flex flex-col items-center text-center p-4 md:p-6 bg-card border border-border rounded-2xl md:bg-transparent md:border-0">
                     <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-full bg-accent md:bg-secondary flex items-center justify-center mb-3 md:mb-6">
                       <value.icon className="h-5 w-5 md:h-8 md:w-8 text-foreground" />
@@ -125,7 +125,7 @@ const milestones = [
                     </p>
                   </div>
                 </AnimatedSection>
-              ))}
+            )}
            </div>
          </div>
        </section>
@@ -135,12 +135,12 @@ const milestones = [
          <div className="container-wide px-5 md:px-6">
            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
               {[
-                { value: "100%", label: "Transparent Pricing" },
-                { value: "A+", label: "Grade Materials" },
-                { value: "5yr", label: "Structural Warranty" },
-                { value: "24/7", label: "Dedicated Support" },
-              ].map((stat, index) => (
-               <AnimatedSection key={stat.label} delay={index * 100}>
+            { value: "100%", label: "Transparent Pricing" },
+            { value: "A+", label: "Grade Materials" },
+            { value: "5yr", label: "Structural Warranty" },
+            { value: "24/7", label: "Dedicated Support" }].
+            map((stat, index) =>
+            <AnimatedSection key={stat.label} delay={index * 100}>
                  <div className="text-center">
                    <p className="text-2xl md:text-4xl font-semibold mb-1 md:mb-2">
                      {stat.value}
@@ -148,7 +148,7 @@ const milestones = [
                    <p className="text-xs md:text-base opacity-70">{stat.label}</p>
                  </div>
                </AnimatedSection>
-             ))}
+            )}
            </div>
          </div>
        </section>
@@ -180,19 +180,19 @@ const milestones = [
                <div className="bg-secondary rounded-2xl p-5 md:p-12">
                  <div className="grid grid-cols-2 gap-3 md:gap-6">
                    {[
-                     { title: "Architects", count: "8" },
-                     { title: "Engineers", count: "12" },
-                     { title: "Project Managers", count: "10" },
-                     { title: "Skilled Workers", count: "20+" },
-                   ].map((role) => (
-                     <div
-                       key={role.title}
-                       className="bg-card rounded-xl p-4 md:p-6 text-center hover-lift"
-                     >
+                  { title: "Architects", count: "8" },
+                  { title: "Engineers", count: "12" },
+                  { title: "Project Managers", count: "10" },
+                  { title: "Skilled Workers", count: "20+" }].
+                  map((role) =>
+                  <div
+                    key={role.title}
+                    className="bg-card rounded-xl p-4 md:p-6 text-center hover-lift">
+                    
                        <p className="text-2xl md:text-3xl font-semibold mb-1 md:mb-2">{role.count}</p>
                        <p className="text-xs md:text-sm text-muted-foreground">{role.title}</p>
                      </div>
-                   ))}
+                  )}
                  </div>
                </div>
              </AnimatedSection>
@@ -220,8 +220,8 @@ const milestones = [
            </AnimatedSection>
          </div>
        </section>
-     </Layout>
-   );
- };
- 
- export default About;
+     </Layout>);
+
+};
+
+export default About;
