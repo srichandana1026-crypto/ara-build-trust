@@ -156,47 +156,47 @@ const About = () => {
        {/* Team Section */}
        <section className="py-8 md:section-padding bg-background">
          <div className="container-wide px-5 md:px-6">
-           <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
-             <AnimatedSection direction="left">
-               <p className="text-xs md:text-sm font-medium tracking-widest uppercase text-muted-foreground mb-2 md:mb-4">
-                 Our Team
-               </p>
-               <h2 className="text-2xl md:text-4xl font-semibold mb-4 md:mb-6">
-                 Skilled professionals, dedicated to your success
-               </h2>
-               <p className="text-muted-foreground text-sm md:text-lg mb-4 md:mb-6 leading-relaxed">
-                 Our team includes experienced architects, engineers, project
-                 managers, and skilled craftsmen. Each member is carefully selected
-                 for their expertise and commitment to quality.
-               </p>
-               <p className="text-muted-foreground text-sm md:text-lg leading-relaxed">
-                 When you work with ARA, you get a dedicated project manager who
-                 serves as your single point of contact throughout the entire
-                 construction process.
-               </p>
-             </AnimatedSection>
- 
-             <AnimatedSection direction="right">
-               <div className="bg-secondary rounded-2xl p-5 md:p-12">
-                 <div className="grid grid-cols-2 gap-3 md:gap-6">
-                   {[
-                  { title: "Architects", count: "8" },
-                  { title: "Engineers", count: "12" },
-                  { title: "Project Managers", count: "10" },
-                  { title: "Skilled Workers", count: "20+" }].
-                  map((role) =>
-                  <div
-                    key={role.title}
-                    className="bg-card rounded-xl p-4 md:p-6 text-center hover-lift">
-                    
-                       <p className="text-2xl md:text-3xl font-semibold mb-1 md:mb-2">{role.count}</p>
-                       <p className="text-xs md:text-sm text-muted-foreground">{role.title}</p>
-                     </div>
-                  )}
-                 </div>
-               </div>
-             </AnimatedSection>
-           </div>
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
          </div>
        </section>
  
