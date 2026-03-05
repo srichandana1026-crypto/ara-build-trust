@@ -5,12 +5,14 @@
 /* ARA Constructions Design System
    Apple-inspired minimal design with neutral palette
    All colors in HSL format
-    
+
     IMPORTANT: Mobile and desktop share the same DOM structure.
     All responsive differences are handled via CSS media queries only.
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 @layer base {
   :root {
@@ -68,6 +70,7 @@
     --charcoal: 220 10% 12%;
     --warm-white: 40 20% 98%;
     --stone: 40 8% 85%;
+    --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   }
 
   .dark {
@@ -102,6 +105,7 @@
     --charcoal: 40 20% 98%;
     --warm-white: 220 10% 8%;
     --stone: 220 10% 25%;
+    --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   }
 
   /* Mobile-specific dark theme - applied only on mobile viewports */
@@ -275,7 +279,7 @@
     .mobile-caption {
       @apply text-sm text-muted-foreground;
     }
-     
+
      /* Add padding at bottom for fixed mobile nav */
      main {
        padding-bottom: 5rem;
@@ -303,7 +307,7 @@
   .pb-safe {
     padding-bottom: max(env(safe-area-inset-bottom), 1rem);
   }
-   
+
    /* Desktop section-padding fallback for mobile */
    @media (max-width: 767px) {
      .md\:section-padding {
