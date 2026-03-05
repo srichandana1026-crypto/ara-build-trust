@@ -1,6 +1,9 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 
 /* ARA Constructions Design System
@@ -11,7 +14,6 @@
     All responsive differences are handled via CSS media queries only.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 
 
@@ -354,8 +356,11 @@
 
   /* Glass & Animated Border effects */
   .glass-capsule {
-    @apply relative overflow-hidden backdrop-blur-2xl bg-white/10 dark:bg-black/20 border border-white/40 shadow-[0_8px_32px_0_rgba(0, 0, 0, 0.2)];
+    @apply relative overflow-hidden backdrop-blur-2xl bg-white/10 dark:bg-black/20 border border-white/40;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
   }
+
+
 
   .moving-border-container {
     @apply relative inline-flex items-center justify-center p-[1px] overflow-hidden rounded-full;
