@@ -131,27 +131,27 @@ const About = () => {
        </section>
  
        {/* Stats Section */}
-       <section className="py-10 md:py-16 bg-foreground text-primary-foreground">
-         <div className="container-wide px-5 md:px-6">
-           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-              {[
-            { value: "100%", label: "Transparent Pricing" },
-            { value: "A+", label: "Grade Materials" },
-            { value: "5yr", label: "Structural Warranty" },
-            { value: "24/7", label: "Dedicated Support" }].
-            map((stat, index) =>
-            <AnimatedSection key={stat.label} delay={index * 100}>
-                 <div className="text-center">
-                   <p className="text-2xl md:text-4xl font-semibold mb-1 md:mb-2">
-                     {stat.value}
-                   </p>
-                   <p className="text-xs md:text-base opacity-70">{stat.label}</p>
-                 </div>
-               </AnimatedSection>
-            )}
-           </div>
-         </div>
-       </section>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
  
        {/* Team Section */}
        <section className="py-8 md:section-padding bg-background">
