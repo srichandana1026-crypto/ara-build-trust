@@ -154,9 +154,7 @@ const About = () => {
       
  
        {/* Team Section */}
-       <section className="py-8 md:section-padding bg-background">
-         <div className="container-wide px-5 md:px-6">
-           
+       
 
 
 
@@ -196,9 +194,11 @@ const About = () => {
 
 
 
-          
-         </div>
-       </section>
+
+
+
+
+      
  
        {/* CTA Section */}
        <section className="py-12 md:section-padding bg-foreground text-primary-foreground">
