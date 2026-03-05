@@ -71,52 +71,30 @@ const milestones = [
        {/* Story Section */}
        <section className="py-8 md:section-padding bg-secondary">
          <div className="container-wide px-5 md:px-6">
-           <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
-             <AnimatedSection direction="left">
-              <h2 className="text-2xl md:text-4xl font-semibold mb-4 md:mb-6">
-                A modern approach to construction
-              </h2>
-              <div className="space-y-3 md:space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
-                <p>
-                  ARA Constructions was founded with a clear mission: to bring
-                  transparent, quality-driven construction to Warangal and the
-                  surrounding region.
-                </p>
-                <p>
-                  Our team of experienced architects, engineers, and skilled
-                  craftsmen brings decades of combined expertise to every
-                  project—ensuring excellence from foundation to finish.
-                </p>
-                <p>
-                  We believe that every client deserves to know exactly what
-                  they're paying for, when their project will be completed, and
-                  that every promise made will be kept.
-                </p>
-              </div>
-             </AnimatedSection>
- 
-              <AnimatedSection direction="right">
-                <div className="bg-foreground text-primary-foreground rounded-2xl p-6 md:p-12">
-                  <h3 className="text-xl font-semibold mb-6 text-primary-foreground">What Drives Us</h3>
-                 <div className="space-y-4 md:space-y-6">
-                   {milestones.map((milestone, index) => (
-                     <div
-                       key={milestone.year}
-                       className="flex gap-4 items-start"
-                     >
-                       <span className="text-base md:text-lg font-semibold opacity-60 w-14 md:w-16">
-                         {milestone.year}
-                       </span>
-                       <div className="flex-1">
-                         <div className="h-px bg-primary-foreground/20 mb-2 md:mb-3" />
-                         <p className="text-sm md:text-base">{milestone.event}</p>
-                       </div>
-                     </div>
-                   ))}
-                 </div>
+            <AnimatedSection direction="left">
+              <div className="max-w-3xl">
+               <h2 className="text-2xl md:text-4xl font-semibold mb-4 md:mb-6">
+                 A modern approach to construction
+               </h2>
+               <div className="space-y-3 md:space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
+                 <p>
+                   ARA Constructions was founded with a clear mission: to bring
+                   transparent, quality-driven construction to Warangal and the
+                   surrounding region.
+                 </p>
+                 <p>
+                   Our team of experienced architects, engineers, and skilled
+                   craftsmen brings decades of combined expertise to every
+                   project—ensuring excellence from foundation to finish.
+                 </p>
+                 <p>
+                   We believe that every client deserves to know exactly what
+                   they're paying for, when their project will be completed, and
+                   that every promise made will be kept.
+                 </p>
                </div>
-             </AnimatedSection>
-           </div>
+              </div>
+            </AnimatedSection>
          </div>
        </section>
  
@@ -134,20 +112,20 @@ const milestones = [
              </div>
            </AnimatedSection>
  
-           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
-             {values.map((value, index) => (
-               <AnimatedSection key={value.title} delay={index * 100}>
-                 <div className="text-center p-4 md:p-6 bg-card border border-border rounded-2xl md:bg-transparent md:border-0">
-                   <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-full bg-accent md:bg-secondary flex items-center justify-center mx-auto mb-3 md:mb-6">
-                     <value.icon className="h-5 w-5 md:h-8 md:w-8 text-foreground" />
-                   </div>
-                   <h3 className="text-sm md:text-lg font-semibold mb-1 md:mb-3">{value.title}</h3>
-                   <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-                     {value.description}
-                   </p>
-                 </div>
-               </AnimatedSection>
-             ))}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
+              {values.map((value, index) => (
+                <AnimatedSection key={value.title} delay={index * 100} className="h-full">
+                  <div className="h-full flex flex-col items-center text-center p-4 md:p-6 bg-card border border-border rounded-2xl md:bg-transparent md:border-0">
+                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-full bg-accent md:bg-secondary flex items-center justify-center mb-3 md:mb-6">
+                      <value.icon className="h-5 w-5 md:h-8 md:w-8 text-foreground" />
+                    </div>
+                    <h3 className="text-sm md:text-lg font-semibold mb-1 md:mb-3">{value.title}</h3>
+                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed flex-1">
+                      {value.description}
+                    </p>
+                  </div>
+                </AnimatedSection>
+              ))}
            </div>
          </div>
        </section>
